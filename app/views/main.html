@@ -1,0 +1,17 @@
+<div class="jumbotron">
+  <p>Kontostand: {{value  | number:2}}</p>
+</div>
+
+<div class="row marketing">
+  <div ng-repeat="modifier in modifiers" class="modifier">
+    <div><strong>{{modifier.name}}</strong> Profit: {{modifier.earnPerCycle  | number:2}}</div>
+    <div>cost: {{modifier.cost  | number:2}} Level: {{modifier.level}} Dauer: {{modifier.duration | number:2}}<button ng-show="value >= modifier.cost" ng-click="upgrade(modifier)">buy</button></div>
+        <div>
+      <div class="progress">
+        <div class="progress-bar" data-transitiongoal="0" role="progressbar" aria-valuenow="{{modifier.durationPer100}}" aria-valuemin="0" aria-valuemax="100" style="width:{{modifier.durationPer100}}%">
+          <span class="sr-only">70% Complete {{modifier.durationCounter}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
